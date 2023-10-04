@@ -9,6 +9,9 @@
   "scripts": {
     "test": "gulp publish"
   },
+  "overrides": {
+    "glob-parent": "^6.0.2"
+  },
   "author": "Middleware Dept, Team Internet Group PLC",
   "license": "ISC",
   "dependencies": {
