@@ -1,0 +1,17 @@
+{
+  "name": "rtldev-middleware-gulp-release-notification-plugin",
+  "version": "1.0.0",
+  "description": "Send message notification on Microsoft Teams Channel on every release",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "gulp publish"
+  },
+  "author": "Middleware Dept, Team Internet Group PLC",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^4.0.2"
+  }
+}
