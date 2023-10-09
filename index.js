@@ -26,7 +26,7 @@ async function publish() {
         "text": "Reporter: Team Middleware [[Kai](https://github.com/KaiSchwarz-cnic), [Asif](https://github.com/AsifNawaz-cnic), [Sebastian](https://github.com/SebastianVassiliou-cnic)]\n\nArea: 3rd-party Software Integrations",
       "sections": [
           {
-            "activityTitle": "Reasons",
+            "activityTitle": "Reason:",
             "activityText": "${notes}"
           }
         ]}' ${webHookURI}`;
