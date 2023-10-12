@@ -1,7 +1,7 @@
 const { series } = require('gulp');
 const arg = require('./lib/arguments');
-const { execSync, exec } = require('child_process');
-
+const { execSync } = require('child_process');
+let counter = 1;
 async function publish() {
     const webHookURI = execSync("echo $RTLDEV_MW_NOTIFICATION_URI").toString().trim();
     if (!webHookURI || webHookURI.length === 0) {
@@ -19,7 +19,7 @@ async function publish() {
         return;
     }
 
-    const cmd = `curl -H 'Content-Type: application/json' -d '{
+    const cmd = `curl -sS --no-progress-bar -H 'Content-Type: application/json' -d '{
         "@context": "https://schema.org/extensions",
         "@type": "MessageCard",
         "themeColor": "0076D7",
@@ -31,11 +31,19 @@ async function publish() {
           }
         ]}' ${webHookURI}`;
     try {
-        let res = execSync(cmd);
+        let res = execSync(cmd, { encoding: 'utf8' });
         if (res.toString() === '1') {
             console.log(
                 'Notification published successfully on Teams Change Management Channel.',
             );
+        } else if (counter <= 3) {
+            counter++;
+            const timer = ms => new Promise(res => setTimeout(res, ms));
+            console.log("wait 5 seconds to retry");
+            await timer(5000);
+            return publish();
+        } else {
+            console.error(res.toString());
         }
     } catch (err) {
         console.error(err.stderr.toString());
