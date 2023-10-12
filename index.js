@@ -1,7 +1,7 @@
 const { series } = require('gulp');
 const arg = require('./lib/arguments');
 const { execSync } = require('child_process');
-let counter = 1;
+
 async function publish() {
     const webHookURI = execSync("echo $RTLDEV_MW_NOTIFICATION_URI").toString().trim();
     if (!webHookURI || webHookURI.length === 0) {
@@ -29,27 +29,34 @@ async function publish() {
             "activityTitle": "Reason:",
             "activityText": "${notes}"
           }
-        ]}' ${webHookURI}`;
+        ]}' 'https://centralnic.webhook.office.com/webhookb2/c295524b-ddc6-480d-b7af-bc1d0bb7ce6d@b4f6acc5-a1a2-441f-ab33-4584863ff079/IncomingWebhook/f26b299d529a4f838c45c2e28312ef07/5dc662cd-7b04-481a-8e6c'`;
     try {
         let res = execSync(cmd, { encoding: 'utf8' });
         if (res.toString() === '1') {
             console.log(
                 'Notification published successfully on Teams Change Management Channel.',
             );
-        } else if (counter <= 3) {
-            counter++;
-            const timer = ms => new Promise(res => setTimeout(res, ms));
-            console.log("wait 5 seconds to retry");
-            await timer(5000);
-            return publish();
-        } else {
-            console.error(res.toString());
+            return;
         }
+        console.error(res.toString());
+        await retryFn();
     } catch (err) {
+        await retryFn();
         console.error(err.stderr.toString());
         return;
     }
 }
+
+async function retryFn() {
+    if (retryFn.counter > 3) {
+        return;
+    }
+    retryFn.counter++;
+    console.log("Waiting 5 seconds to retry publishing the notification.");
+    await new Promise(res => setTimeout(res, 5000));
+    await publish();
+}
+retryFn.counter = 1;
 
 async function generateNotes() {
     // Decode the notes to handle any special characters.
