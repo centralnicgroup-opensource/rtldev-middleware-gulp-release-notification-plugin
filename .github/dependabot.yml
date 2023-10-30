@@ -5,6 +5,14 @@ updates:
     schedule:
       interval: "daily"
     commit-message:
-      prefix: "fix(npm dep)"
-      prefix-development: "chore(npm dev dep)"
+      prefix: "fix"
+      prefix-development: "chore"
+      include: "scope"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "chore"
       include: "scope"
