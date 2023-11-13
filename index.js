@@ -1,8 +1,11 @@
-const { series } = require('gulp');
 const arg = require('./lib/arguments');
 const { execSync } = require('child_process');
+const fs = require('fs').promises;
 
 async function publish() {
+    // Read the content of the package.json file
+    const { projectName, repoUrl } = await readPackageJson();
+
     const webHookURI = execSync("echo $RTLDEV_MW_NOTIFICATION_URI").toString().trim();
     if (!webHookURI || webHookURI.length === 0) {
         console.log(
@@ -23,13 +26,13 @@ async function publish() {
         "@context": "https://schema.org/extensions",
         "@type": "MessageCard",
         "themeColor": "0076D7",
-        "text": "Reporter: Team Middleware [[Kai](https://github.com/KaiSchwarz-cnic), [Asif](https://github.com/AsifNawaz-cnic), [Sebastian](https://github.com/SebastianVassiliou-cnic)]\n\nArea: 3rd-party Software Integrations",
+        "text": "Reporter: Team Middleware [[Kai](https://github.com/KaiSchwarz-cnic), [Asif](https://github.com/AsifNawaz-cnic), [Sebastian](https://github.com/SebastianVassiliou-cnic)]\n\nArea: 3rd-party Software Integrations\n\nProject: [${projectName}](${repoUrl})",
       "sections": [
           {
             "activityTitle": "Reason:",
             "activityText": "${notes}"
           }
-        ]}' 'https://centralnic.webhook.office.com/webhookb2/c295524b-ddc6-480d-b7af-bc1d0bb7ce6d@b4f6acc5-a1a2-441f-ab33-4584863ff079/IncomingWebhook/f26b299d529a4f838c45c2e28312ef07/5dc662cd-7b04-481a-8e6c'`;
+        ]}' '${webHookURI}'`;
     try {
         let res = execSync(cmd, { encoding: 'utf8' });
         if (res.toString() === '1') {
@@ -72,4 +75,18 @@ async function generateNotes() {
     return cleanedNotes;
 }
 
-module.exports = series(publish);
+async function readPackageJson() {
+    try {
+        // Read the content of the package.json file
+        const data = await fs.readFile('package.json', 'utf8');
+
+        // Parse the JSON data and return data
+        const packageJson = JSON.parse(data);
+        return { projectName: packageJson.name, repoUrl: packageJson?.homepage ?? "" };
+
+    } catch (error) {
+        console.error('Error reading or parsing package.json file:', error);
+    }
+}
+
+module.exports = publish;
