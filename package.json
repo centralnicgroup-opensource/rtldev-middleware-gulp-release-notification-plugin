@@ -4,6 +4,10 @@
   "private": true,
   "description": "Send message notification on Microsoft Teams Channel on every release",
   "main": "index.js",
+  "repository": "github.com:centralnicgroup-opensource/rtldev-middleware-gulp-release-notification-plugin",
+  "homepage": "https://github.com/centralnicgroup-opensource/rtldev-middleware-gulp-release-notification-plugin",
+  "author": "Middleware Dept, Team Internet Group PLC",
+  "license": "LICENSE",
   "directories": {
     "lib": "lib"
   },
@@ -13,8 +17,6 @@
   "overrides": {
     "glob-parent": "^6.0.2"
   },
-  "author": "Middleware Dept, Team Internet Group PLC",
-  "license": "ISC",
   "devDependencies": {
     "gulp": "^4.0.2"
   }

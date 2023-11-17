@@ -1,4 +1,3 @@
 const {series} = require('gulp');
-const publish = require('./index');
-
-exports.publish = series(publish);
+const publishNotification = require('./index');
+exports.publish = series(publishNotification);
