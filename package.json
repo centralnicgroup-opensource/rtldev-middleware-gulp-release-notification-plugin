@@ -15,7 +15,8 @@
     "test": "gulp publish"
   },
   "overrides": {
-    "glob-parent": "^6.0.2"
+    "glob-parent": "^6.0.2",
+    "chokidar": "^3.5.3"
   },
   "devDependencies": {
     "gulp": "^4.0.2"
