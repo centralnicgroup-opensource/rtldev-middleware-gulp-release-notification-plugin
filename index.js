@@ -27,7 +27,7 @@ async function postNotification() {
 
     if (!notificationType) {
         pushValue("projectName", { text: projectName });
-        pushValue("releaseInfo", { text: `${releaseType} v${versionNumber} (${getReleaseDate()})` });
+        pushValue("releaseInfo", { text: `${releaseType} v${versionNumber} ${getReleaseDate()}` });
         pushValue("changeLog", { text: getNotes() });
         pushValue("header", { style: headerColor });
         pushValue("releaseNotes", { url: releaseUrl ?? "" });
