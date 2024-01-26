@@ -11,7 +11,7 @@
       [
         "@semantic-release/exec",
         {
-          "successCmd": "gulp -f gulpfile.cjs publishNotification --update \"${nextRelease.version}\" --type \"${nextRelease.type}\" --notes \"${encodeURIComponent(nextRelease.notes)}\""
+          "successCmd": "gulp gulpfile.js publishNotification --update \"${nextRelease.version}\" --type \"${nextRelease.type}\" --notes \"${encodeURIComponent(nextRelease.notes)}\""
         }
       ],
       "@semantic-release/npm",
