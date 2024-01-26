@@ -19,6 +19,7 @@
     "chokidar": "^3.5.3"
   },
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "semantic-release": "^23.0.0"
   }
 }

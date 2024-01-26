@@ -1,0 +1,32 @@
+{
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "HISTORY.md"
+        }
+      ],
+      [
+        "@semantic-release/exec",
+        {
+          "successCmd": "gulp -f gulpfile.cjs publishNotification --update \"${nextRelease.version}\" --type \"${nextRelease.type}\" --notes \"${encodeURIComponent(nextRelease.notes)}\""
+        }
+      ],
+      "@semantic-release/npm",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "HISTORY.md",
+            "package?(-lock).json",
+            "assets/*",
+            "lib/*",
+            "index.js"
+          ]
+        }
+      ],
+      "@semantic-release/github"
+    ]
+  }

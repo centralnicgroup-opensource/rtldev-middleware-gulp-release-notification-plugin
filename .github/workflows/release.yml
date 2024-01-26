@@ -1,0 +1,12 @@
+name: Release
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    uses: centralnicgroup-opensource/rtldev-middleware-shareable-workflows/.github/workflows/release.yml@main
+    secrets: inherit
+    with:
+      repository: ${{ github.repository }}
