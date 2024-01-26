@@ -15,13 +15,14 @@
     "test": "gulp publish"
   },
   "overrides": {
-    "glob-parent": "^6.0.2",
+    "chai": "^5.0.0",
+    "glob-parent": "^5.1.2",
     "chokidar": "^3.5.3"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "github:semantic-release/changelog",
-    "@semantic-release/exec": "github:semantic-release/exec",
-    "@semantic-release/git": "github:semantic-release/git",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/exec": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
     "gulp": "^4.0.2",
     "semantic-release": "^23.0.0"
   }
