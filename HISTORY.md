@@ -1,3 +1,11 @@
+## [2.0.8](https://github.com/centralnicgroup-opensource/rtldev-middleware-gulp-release-notification-plugin/compare/v2.0.7...v2.0.8) (2024-04-04)
+
+
+### Bug Fixes
+
+* **gulp:** bumped gulp version to v5 ([59f0df3](https://github.com/centralnicgroup-opensource/rtldev-middleware-gulp-release-notification-plugin/commit/59f0df3d89747b7522b225aa4db8d8839819e226))
+* **workflows:** updated layout ([441ac6b](https://github.com/centralnicgroup-opensource/rtldev-middleware-gulp-release-notification-plugin/commit/441ac6bfcf8b231ca9c5cd89f3529a1652c37ace))
+
 ## [2.0.7](https://github.com/centralnicgroup-opensource/rtldev-middleware-gulp-release-notification-plugin/compare/v2.0.6...v2.0.7) (2024-3-6)
 
 
