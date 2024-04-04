@@ -16,8 +16,7 @@
   },
   "overrides": {
     "chai": "^5.0.0",
-    "glob-parent": "^5.1.2",
-    "chokidar": "^3.5.3"
+    "glob-parent": "^5.1.2"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
