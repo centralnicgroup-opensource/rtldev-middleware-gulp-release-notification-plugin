@@ -1,3 +1,10 @@
+## [2.0.9](https://github.com/centralnicgroup-opensource/rtldev-middleware-gulp-release-notification-plugin/compare/v2.0.8...v2.0.9) (2025-11-20)
+
+
+### Bug Fixes
+
+* **deps:** bump glob and semantic-release ([3590079](https://github.com/centralnicgroup-opensource/rtldev-middleware-gulp-release-notification-plugin/commit/3590079f59424e750aad2071b64592520f95a54d))
+
 ## [2.0.8](https://github.com/centralnicgroup-opensource/rtldev-middleware-gulp-release-notification-plugin/compare/v2.0.7...v2.0.8) (2024-04-04)
 
 
