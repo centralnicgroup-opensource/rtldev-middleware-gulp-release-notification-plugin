@@ -18,13 +18,12 @@
         "successCmd": "gulp publish --update \"${nextRelease.version}\" --type \"${nextRelease.type}\" --notes \"${encodeURIComponent(nextRelease.notes)}\""
       }
     ],
-    "@semantic-release/npm",
     [
       "@semantic-release/git",
       {
         "assets": [
           "HISTORY.md",
-          "package?(-lock).json",
+          "pnpm-lock.yaml",
           "assets/*",
           "lib/*",
           "index.js"
