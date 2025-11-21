@@ -1,3 +1,10 @@
+## [2.0.10](https://github.com/centralnicgroup-opensource/rtldev-middleware-gulp-release-notification-plugin/compare/v2.0.9...v2.0.10) (2025-11-21)
+
+
+### Bug Fixes
+
+* **deps:** bump tar and npm ([aa8a5be](https://github.com/centralnicgroup-opensource/rtldev-middleware-gulp-release-notification-plugin/commit/aa8a5bef9900fe48086e2a273084d1929b21898d))
+
 ## [2.0.9](https://github.com/centralnicgroup-opensource/rtldev-middleware-gulp-release-notification-plugin/compare/v2.0.8...v2.0.9) (2025-11-20)
 
 
